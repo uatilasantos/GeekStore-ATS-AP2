@@ -1,48 +1,125 @@
-## Como configurar o ambiente local
+# 🛒 GeekStore ATS - AP2
 
-**1. Criar e ativar o ambiente virtual:**
+Projeto desenvolvido para a atividade de **Automação e Testes de Software (ATS)**.
 
-# Criar o ambiente
-Windows: python -m venv venv
-Linux: python3 -m venv venv
+O sistema simula uma loja virtual simples utilizando **FastAPI** e **SQLite**, com foco em testes automatizados e integração contínua.
 
-# Ativar no Windows:
-venv\Scripts\activate
-# Ativar no Linux/Mac:
-source venv/bin/activate
+---
 
+# 🚀 Tecnologias Utilizadas
 
-**2. Instalar as dependências:**
+* Python
+* FastAPI
+* SQLite
+* Pytest
+* Selenium
+* Tavern
+* GitHub Actions
 
+---
+
+# 📂 Estrutura do Projeto
+
+```bash
+GEEKSTORE-ATS-AP2/
+│
+├── .github/
+│   └── workflows/
+│       ├── ci.yml
+│       └── main.yml
+│
+├── tests/
+│   ├── features/
+│   ├── selenium/
+│   ├── steps/
+│   ├── tavern/
+│   ├── test_api.py
+│   ├── test_gateway.py
+│   └── test_services.py
+│
+├── conftest.py
+├── database.py
+├── gateway.py
+├── index.html
+├── main.py
+├── requirements.txt
+└── services.py
+```
+
+---
+
+# ⚙️ Como Executar o Projeto
+
+## Instalar dependências
+
+```bash
 pip install -r requirements.txt
+```
 
+---
 
-## Como correr a aplicação
+## Iniciar aplicação
 
-A aplicação utiliza o **FastAPI** para o backend e serve um ficheiro estático `index.html` para o frontend.
-
-
+```bash
 uvicorn main:app --reload
+```
 
+A aplicação ficará disponível em:
 
-* **Frontend:** Acede a `http://localhost:8000` no navegador.
-* **Documentação da API:** Acede a `http://localhost:8000/docs`.
+```bash
+http://127.0.0.1:8000
+```
 
-*(Nota: Na primeira execução, o ficheiro do banco de dados `geekstore.db` será criado automaticamente).*
+---
 
-## Como correr os testes
+# 🧪 Executando os Testes
 
-Deixa o servidor (comando acima) a executando num terminal e **abra um segundo terminal** (ativar o ambiente virtual novamente) para executar os comandos dos testes.
+## Rodar todos os testes
 
-**Para correr todos os testes:**
+```bash
+pytest -v
+```
 
-pytest
+---
 
+## Rodar testes com cobertura
 
-**Para correr os testes e validar a meta de cobertura (Obrigatório para a entrega):**
-
+```bash
 pytest --cov=. --cov-fail-under=90
+```
 
+---
 
-Autor:
+# ✅ Testes Implementados
+
+* Testes Unitários
+* Testes de API
+* Testes com Mock
+* Testes BDD
+* Testes Tavern
+* Testes E2E com Selenium
+
+---
+
+# 🔄 Integração Contínua
+
+O projeto utiliza GitHub Actions para executar os testes automaticamente a cada push no repositório.
+
+---
+
+# 📄 Objetivo da Atividade
+
+Aplicar conceitos de:
+
+* Qualidade de Software
+* Testes Automatizados
+* Cobertura de Código
+* Integração Contínua
+* Testes de API
+* Testes End-to-End
+
+---
+
+# 👨‍💻 Autor
+
 Uatila Dos Santos Silva
