@@ -3,7 +3,8 @@
 **1. Criar e ativar o ambiente virtual:**
 
 # Criar o ambiente
-python -m venv venv
+Windows: python -m venv venv
+Linux: python3 -m venv venv
 
 # Ativar no Windows:
 venv\Scripts\activate
@@ -41,3 +42,7 @@ pytest
 **Para correr os testes e validar a meta de cobertura (Obrigatório para a entrega):**
 
 pytest --cov=. --cov-fail-under=90
+
+
+Autor:
+Uatila Dos Santos Silva

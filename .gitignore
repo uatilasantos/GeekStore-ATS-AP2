@@ -1,0 +1,23 @@
+# Ambiente virtual
+venv/
+.venv/
+
+# Python
+__pycache__/
+*.pyc
+
+# Banco de dados
+*.db
+
+# VS Code
+.vscode/
+
+# Pytest
+.pytest_cache/
+
+# Cobertura
+htmlcov/
+.coverage
+
+# Selenium
+*.log

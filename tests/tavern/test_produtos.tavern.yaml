@@ -1,0 +1,26 @@
+test_name: Validar endpoint de produtos
+
+stages:
+  - name: Buscar produtos
+
+    request:
+      url: http://127.0.0.1:8000/api/produtos
+      method: GET
+
+    response:
+      status_code: 200
+
+      verify_response_with:
+        function: tavern.helpers:validate_pykwalify
+        extra_kwargs:
+          schema:
+            type: seq
+            sequence:
+              - type: map
+                mapping:
+                  nome:
+                    type: str
+                  preco:
+                    type: float
+                  estoque:
+                    type: int
