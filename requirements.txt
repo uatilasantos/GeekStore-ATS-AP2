@@ -6,3 +6,5 @@ pytest-bdd
 pytest-mock
 tavern
 selenium
+httpx
+webdriver-manager
