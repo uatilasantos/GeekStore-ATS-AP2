@@ -1,29 +1,48 @@
 name: Python Tests
+
 on:
   push:
     branches:
       - main
+
   pull_request:
     branches:
       - main
+
 jobs:
   tests:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout do código
         uses: actions/checkout@v4
+
       - name: Configurar Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+
       - name: Instalar dependências
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-      - name: Iniciar aplicação
+
+      - name: Instalar Chrome
+        uses: browser-actions/setup-chrome@v1
+
+      - name: Criar banco de dados
         run: |
-          python main.py &
-          sleep 5
-      - name: Executar testes
+          python database.py
+
+      - name: Subir API FastAPI
+        run: |
+          uvicorn main:app --host 0.0.0.0 --port 8000 &
+          sleep 10
+
+      - name: Verificar API
+        run: |
+          curl http://127.0.0.1:8000/api/produtos
+
+      - name: Rodar testes
         run: |
           pytest -v
